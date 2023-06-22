@@ -6,18 +6,19 @@ import {Amplify, API}  from 'aws-amplify';
 
 const ShowProducts = (props)=> {
 
-const [products, setProducts] = useState([]);
+const [equips, setEquips] = useState([]);
 const [loading, setLoading] = useState(false);
 
 function getProducts(e){
-  API.get("superExpress", "/products/")
+  //API.get("serverAwsIot","/dev/temps")
+  API.get("superExpress", "/users")
   // Axios.get("http://localhost:3001/ShowProducts")
    .then((response) =>{
-   setProducts(response.data);
+   setEquips(response.data);
    const data = response.data
    });
    {
-   console.log(products)
+   console.log(equips)
    setLoading(true)
   
    }

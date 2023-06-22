@@ -7,38 +7,22 @@ import {API} from "aws-amplify"
 
 function Users(){
 
+
 const [user_id, setUserId] = useState()
 const [nome, setName] = useState()
 const [email, setEmail] = useState()
 const [senha, setSenha] = useState()
 
 async function cadastrarUsuario(e){
-    e.preventDefault()
-    console.log(`O usuario ${nome} usa a senha ${senha}`)
+ //e.preventDefault()
+    console.log(`O usuario ${name} usa a senha ${senha}`)
     
-// var myHeaders = new Headers();
-// myHeaders.append(
-//     {"Content-type": 'application/json',
-//     "Access-Control-Allow-Origin": "*"}
-//     );
-    
-const options = {
-                method: 'POST',
-                cache: 'default',
-                header: { 'Access-Control-Allow-Origin':'*',mode: 'cors',
-                'Content-Type': 'application/json' },
-                redirect: 'follow'
-                };
-
 //Axios.post("http://localhost:3001/users",{
-    await API.post("superExpress", "/users",options,{
-    body:{
-        user_id: user_id,
-        name: nome,
-        email:email,
-        senha:senha
-    } ,
-    
+    await API.post("superExpress", "/users",{
+        user_id: {user_id},
+        name: {name},
+        email: {email},
+        senha:{senha}
         }).then((response)=>{
         console.log(response)
         .catch (error=> {
